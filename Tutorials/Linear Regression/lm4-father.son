@@ -1,0 +1,32 @@
+father.son
+head(father.son)
+ggplot()+geom_point(data=father.son,aes(x=fheight,y=sheight))+
+  geom_line(data=line,aes(x=x,y=y))
+x=c(60,75)
+y=c(60,75)
+line=data.frame(x,y)
+x=father.son$fheight
+y=father.son$sheight
+groups=1:1078
+dat=data.frame(x,y,groups)
+y=x+3
+means =data.frame(x,y,groups)
+head(dat)
+head(means)
+ggplot()+
+  geom_line(data=line,aes(x=x,y=y))
+x=c(50,80)
+y=x+3
+line=data.frame(x,y)
+d=rbind(dat,means)
+head(d)
+
+lm(y~x, data=dat)
+slope=0.5141
+intercept = 33.8866
+x=c(57,78)
+y=slope*x+intercept
+line=data.frame(x,y)
+x=means$x
+y=slope*x+intercept
+means =data.frame(x,y,groups)
